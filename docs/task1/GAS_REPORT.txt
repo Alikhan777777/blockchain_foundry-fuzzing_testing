@@ -1,0 +1,142 @@
+Unable to resolve imports:
+      "../src/Counter.sol" in "/Users/admina/Desktop/blockchain_assignment2/script/Counter.s.sol"
+with remappings:
+      @openzeppelin/contracts/=/Users/admina/Desktop/blockchain_assignment2/lib/openzeppelin-contracts/contracts/
+      erc4626-tests/=/Users/admina/Desktop/blockchain_assignment2/lib/openzeppelin-contracts/lib/erc4626-tests/
+      forge-std/=/Users/admina/Desktop/blockchain_assignment2/lib/forge-std/src/
+      halmos-cheatcodes/=/Users/admina/Desktop/blockchain_assignment2/lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/
+      openzeppelin-contracts/=/Users/admina/Desktop/blockchain_assignment2/lib/openzeppelin-contracts/
+No files changed, compilation skipped
+
+Ran 1 test for test/task1/SimpleToken.t.sol:SimpleTokenTest
+[PASS] test_SupplyIs1000() (gas: 7613)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 286.12µs (42.94µs CPU time)
+
+Ran 3 tests for test/task1/MyTokenFuzz.t.sol:MyTokenFuzzTest
+[PASS] testFuzz_ApproveAndTransferFrom(uint256) (runs: 256, μ: 106501, ~: 108220)
+[PASS] testFuzz_Transfer(uint256) (runs: 256, μ: 72647, ~: 74876)
+[PASS] testFuzz_TransfersNeverExceedTotalSupply(uint256,uint256) (runs: 256, μ: 107806, ~: 84415)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 68.54ms (131.24ms CPU time)
+
+Ran 15 tests for test/task1/MyToken.t.sol:MyTokenTest
+[PASS] test_Approve() (gas: 61921)
+[PASS] test_ApproveThenMultipleTransfers() (gas: 175950)
+[PASS] test_ApproveZeroAddressFails() (gas: 32570)
+[PASS] test_Burn() (gas: 54689)
+[PASS] test_BurnInsufficientBalanceFails() (gas: 34426)
+[PASS] test_Mint() (gas: 74105)
+[PASS] test_MintToZeroAddressFails() (gas: 32539)
+[PASS] test_MintZeroAmountFails() (gas: 34646)
+[PASS] test_MultipleTransfers() (gas: 141162)
+[PASS] test_Transfer() (gas: 76838)
+[PASS] test_TransferExactBalance() (gas: 67168)
+[PASS] test_TransferFrom() (gas: 144064)
+[PASS] test_TransferFromInsufficientAllowanceFails() (gas: 88830)
+[PASS] test_TransferInsufficientBalanceFails() (gas: 36998)
+[PASS] test_TransferToZeroAddressFails() (gas: 32667)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 7.87s (1.70ms CPU time)
+
+Ran 4 tests for test/task1/MyTokenInvariant.t.sol:MyTokenInvariant
+[PASS] invariant_BurnDecreasesBothSupplyAndBalance() (runs: 256, calls: 128000, reverts: 76892)
+
+╭----------+--------------+-------+---------+----------╮
+| Contract | Selector     | Calls | Reverts | Discards |
++======================================================+
+| MyToken  | approve      | 25550 | 25      | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | burn         | 25548 | 25026   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | mint         | 25654 | 1471    | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transfer     | 25606 | 25044   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transferFrom | 25642 | 25326   | 0        |
+╰----------+--------------+-------+---------+----------╯
+
+[PASS] invariant_NoAddressCanHaveMoreThanTotalSupply() (runs: 256, calls: 128000, reverts: 77077)
+
+╭----------+--------------+-------+---------+----------╮
+| Contract | Selector     | Calls | Reverts | Discards |
++======================================================+
+| MyToken  | approve      | 25597 | 11      | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | burn         | 25425 | 24932   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | mint         | 25649 | 1575    | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transfer     | 25398 | 24911   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transferFrom | 25931 | 25648   | 0        |
+╰----------+--------------+-------+---------+----------╯
+
+[FAIL: failed to set up invariant testing environment: Insufficient balance] invariant_SumOfBalancesEqualsSupply() (runs: 0, calls: 0, reverts: 0)
+[PASS] invariant_TotalSupplyConstantAfterTransfers() (runs: 256, calls: 128000, reverts: 76668)
+
+╭----------+--------------+-------+---------+----------╮
+| Contract | Selector     | Calls | Reverts | Discards |
++======================================================+
+| MyToken  | approve      | 25742 | 16      | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | burn         | 25407 | 24904   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | mint         | 25828 | 1581    | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transfer     | 25378 | 24864   | 0        |
+|----------+--------------+-------+---------+----------|
+| MyToken  | transferFrom | 25645 | 25303   | 0        |
+╰----------+--------------+-------+---------+----------╯
+
+Suite result: FAILED. 3 passed; 1 failed; 0 skipped; finished in 14.15s (29.08s CPU time)
+
+╭----------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/task1/MyToken.sol:MyToken Contract |                 |       |        |       |         |
++=============================================================================================+
+| Deployment Cost                        | Deployment Size |       |        |       |         |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| 702442                                 | 3149            |       |        |       |         |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+|                                        |                 |       |        |       |         |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                          | Min             | Avg   | Median | Max   | # Calls |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| allowance                              | 2800            | 2800  | 2800   | 2800  | 3       |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| approve                                | 4640            | 24361 | 24540  | 45992 | 77359   |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| balanceOf                              | 2560            | 2560  | 2560   | 2560  | 1527    |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| burn                                   | 6959            | 9339  | 6959   | 33835 | 1526    |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| mint                                   | 12543           | 29483 | 29643  | 68159 | 72804   |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| totalSupply                            | 2339            | 2339  | 2339   | 2339  | 8       |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| transfer                               | 7351            | 26436 | 30051  | 51503 | 2205    |
+|----------------------------------------+-----------------+-------+--------+-------+---------|
+| transferFrom                           | 10268           | 19154 | 10268  | 57324 | 1199    |
+╰----------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/task1/SimpleToken.sol:SimpleToken Contract |                 |      |        |      |         |
++===================================================================================================+
+| Deployment Cost                                | Deployment Size |      |        |      |         |
+|------------------------------------------------+-----------------+------+--------+------+---------|
+| 200888                                         | 866             |      |        |      |         |
+|------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                |                 |      |        |      |         |
+|------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                  | Min             | Avg  | Median | Max  | # Calls |
+|------------------------------------------------+-----------------+------+--------+------+---------|
+| getSupply                                      | 2302            | 2302 | 2302   | 2302 | 1       |
+╰------------------------------------------------+-----------------+------+--------+------+---------╯
+
+
+Ran 4 test suites in 14.59s (22.09s CPU time): 22 tests passed, 1 failed, 0 skipped (23 total tests)
+
+Failing tests:
+Encountered 1 failing test in test/task1/MyTokenInvariant.t.sol:MyTokenInvariant
+[FAIL: failed to set up invariant testing environment: Insufficient balance] invariant_SumOfBalancesEqualsSupply() (runs: 0, calls: 0, reverts: 0)
+
+Encountered a total of 1 failing tests, 22 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 1 failed test
